@@ -92,7 +92,6 @@ export default function SongForm() {
                     placeholder="Ca sĩ"
                     value={form.singer}
                     onChange={handleChange}
-                    maxLength={30}
                     required
                     className="form-control"
                   />
@@ -105,7 +104,6 @@ export default function SongForm() {
                     placeholder="Nhạc sĩ"
                     value={form.composer}
                     onChange={handleChange}
-                    maxLength={30}
                     required
                     className="form-control"
                   />
