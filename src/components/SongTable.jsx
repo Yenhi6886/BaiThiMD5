@@ -69,7 +69,6 @@ export default function SongTable({ songs, onSelect, onPublic }) {
         </tbody>
       </table>
 
-      {/* Bootstrap Modal */}
       {showModal && (
         <div className="modal fade show" style={{ display: 'block' }} tabIndex="-1" role="dialog">
           <div className="modal-dialog" role="document">
@@ -107,7 +106,6 @@ export default function SongTable({ songs, onSelect, onPublic }) {
         </div>
       )}
       
-      {/* Modal backdrop */}
       {showModal && <div className="modal-backdrop fade show"></div>}
     </div>
   );

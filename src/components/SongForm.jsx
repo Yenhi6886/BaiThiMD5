@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { addSong, getSongs } from "../services/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function SongForm() {
   const [form, setForm] = useState({
@@ -26,13 +26,12 @@ export default function SongForm() {
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    setError(""); // Clear error when user types
+    setError(""); 
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Check for duplicates
     const isDuplicate = existingSongs.some(song => 
       song.title.toLowerCase() === form.title.toLowerCase() && 
       song.singer.toLowerCase() === form.singer.toLowerCase()
@@ -49,11 +48,23 @@ export default function SongForm() {
 
   return (
     <div className="container mt-4">
+      {/* Header với nút quay về */}
+      <div className="row mb-3">
+        <div className="col-md-6">
+          <h1 className="h3">🎵 Đăng ký bài hát</h1>
+        </div>
+        {/* <div className="col-md-6 text-end">
+          <Link to="/" className="btn btn-outline-primary">
+            ← Kho nhạc
+          </Link>
+        </div> */}
+      </div>
+
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card">
             <div className="card-body">
-              <h2 className="card-title text-center mb-4">Đăng ký bài hát mới</h2>
+              <h2 className="card-title text-center mb-4">Điền thông tin bài hát</h2>
 
               {error && (
                 <div className="alert alert-danger" role="alert">
@@ -113,10 +124,13 @@ export default function SongForm() {
                   />
                 </div>
 
-                <div className="d-grid">
+                <div className="d-grid gap-2">
                   <button type="submit" className="btn btn-success">
                     Lưu bài hát
                   </button>
+                  <Link to="/" className="btn btn-outline-secondary">
+                    🎵 Kho nhạc
+                  </Link>
                 </div>
               </form>
             </div>
